@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting to Reset Password...</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f5f5f5;
+      }
+      .container {
+        text-align: center;
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .spinner {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #b3731d;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 1rem;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="spinner"></div>
+      <h2>Redirecting to Reset Password...</h2>
+      <p>Please wait while we redirect you to the correct page.</p>
+      <p>
+        <small
+          >If you're not redirected automatically,
+          <a href="#" id="manual-link">click here</a>.</small
+        >
+      </p>
+    </div>
+
+    <script>
+      // Get current URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const currentUrl = window.location.href;
+
+      // Check if we need to redirect to a different port
+      const currentPort = window.location.port;
+      const targetPorts = ["3002", "3001", "3000"]; // Try these ports in order
+
+      console.log("Reset redirect handler:", {
+        currentPort,
+        currentUrl,
+        params: Object.fromEntries(urlParams.entries()),
+      });
+
+      // Function to try redirecting to different ports
+      async function tryRedirect() {
+        for (const port of targetPorts) {
+          if (port === currentPort) continue; // Skip current port
+
+          try {
+            const newUrl = currentUrl
+              .replace(`:${currentPort}`, `:${port}`)
+              .replace("/redirect-reset.html", "/reset-password");
+            console.log(`Trying to redirect to port ${port}: ${newUrl}`);
+
+            // Test if the port is accessible
+            const testUrl = `http://localhost:${port}/reset-password`;
+            const response = await fetch(testUrl, {
+              method: "HEAD",
+              mode: "no-cors",
+            });
+
+            // If we get here, the port is likely accessible
+            console.log(
+              `Port ${port} appears to be accessible, redirecting...`,
+            );
+            document.getElementById("manual-link").href = newUrl;
+            window.location.href = newUrl;
+            return;
+          } catch (error) {
+            console.log(`Port ${port} not accessible:`, error);
+            continue;
+          }
+        }
+
+        // If no ports work, show error
+        document.querySelector(".container").innerHTML = `
+                <h2>Unable to Redirect</h2>
+                <p>Could not find the reset password page on any expected port.</p>
+                <p>Please check that your application is running and try again.</p>
+                <p><strong>Expected ports:</strong> ${targetPorts.join(", ")}</p>
+                <p><strong>Current URL:</strong> ${currentUrl}</p>
+            `;
+      }
+
+      // Start redirect attempt after a short delay
+      setTimeout(tryRedirect, 1000);
+    </script>
+  </body>
+</html>

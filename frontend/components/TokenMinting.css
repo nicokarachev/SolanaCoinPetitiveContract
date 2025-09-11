@@ -1,0 +1,346 @@
+.token-minting-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.minting-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.minting-card h2 {
+  text-align: center;
+  color: #2d3748;
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.description {
+  text-align: center;
+  color: #4a5568;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.wallet-status {
+  background: #f7fafc;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.status-indicator {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.status-indicator.connected {
+  color: #38a169;
+}
+
+.status-indicator.disconnected {
+  color: #e53e3e;
+}
+
+.wallet-address {
+  font-family: "Courier New", monospace;
+  background: #edf2f7;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #2d3748;
+  font-size: 0.9rem;
+}
+
+.balance-display {
+  background: linear-gradient(135deg, #4299e1, #3182ce);
+  color: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.balance-display h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+}
+
+.balance-amount {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: "Courier New", monospace;
+}
+
+.token-info {
+  background: #f7fafc;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.token-info h3 {
+  margin: 0 0 15px 0;
+  color: #2d3748;
+  font-size: 1.3rem;
+}
+
+.info-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-item .label {
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.info-item .value {
+  color: #2d3748;
+  font-weight: bold;
+  font-family: "Courier New", monospace;
+}
+
+.minting-section {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.mint-button {
+  background: linear-gradient(135deg, #48bb78, #38a169);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 200px;
+  justify-content: center;
+}
+
+.mint-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #38a169, #2f855a);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(72, 187, 120, 0.3);
+}
+
+.mint-button:disabled {
+  background: #a0aec0;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.mint-button.loading {
+  background: #a0aec0;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffffff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.connect-prompt {
+  margin-top: 15px;
+  color: #4a5568;
+  font-style: italic;
+}
+
+.status-message {
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.status-message.success {
+  background: #c6f6d5;
+  color: #22543d;
+  border: 1px solid #9ae6b4;
+}
+
+.status-message.error {
+  background: #fed7d7;
+  color: #742a2a;
+  border: 1px solid #fc8181;
+}
+
+.transaction-info {
+  background: #edf2f7;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.transaction-info h3 {
+  margin: 0 0 15px 0;
+  color: #2d3748;
+  font-size: 1.3rem;
+}
+
+.transaction-details {
+  display: grid;
+  gap: 10px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.detail-item .label {
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.detail-item .value {
+  color: #2d3748;
+  font-weight: bold;
+}
+
+.detail-item .signature {
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+}
+
+.explorer-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #3182ce;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.explorer-link:hover {
+  color: #2c5282;
+  text-decoration: underline;
+}
+
+.instructions {
+  background: #f7fafc;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.instructions h3 {
+  margin: 0 0 15px 0;
+  color: #2d3748;
+  font-size: 1.3rem;
+}
+
+.instructions ol {
+  margin: 0;
+  padding-left: 20px;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.instructions li {
+  margin-bottom: 8px;
+}
+
+.technical-details {
+  background: #edf2f7;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.technical-details summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 10px;
+}
+
+.tech-info {
+  margin-top: 15px;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.tech-info p {
+  margin: 8px 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+}
+
+.tech-info strong {
+  color: #2d3748;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .minting-card {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .minting-card h2 {
+    font-size: 2rem;
+  }
+
+  .mint-button {
+    width: 100%;
+    padding: 12px 20px;
+  }
+
+  .info-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+}

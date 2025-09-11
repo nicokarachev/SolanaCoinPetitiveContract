@@ -1,0 +1,38 @@
+{
+  "name": "Coinpetitive Token",
+  "symbol": "CPT",
+  "description": "The official token of Coinpetitive - a competitive platform for crypto challenges and rewards. Earn CPT tokens by participating in challenges, voting, and engaging with the community.",
+  "image": "https://coinpetitive.com/logo.png",
+  "external_url": "https://coinpetitive.com",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Utility Token"
+    },
+    {
+      "trait_type": "Platform",
+      "value": "Coinpetitive"
+    },
+    {
+      "trait_type": "Blockchain",
+      "value": "Solana"
+    },
+    {
+      "trait_type": "Decimals",
+      "value": 7
+    },
+    {
+      "trait_type": "Max Supply",
+      "value": "61,000,000"
+    }
+  ],
+  "properties": {
+    "category": "fungible",
+    "creators": [
+      {
+        "address": "D8qA4XmvkTwNLfm9FnLinPMgBhBMRfixzDbDoH5Xcazm",
+        "share": 100
+      }
+    ]
+  }
+}
