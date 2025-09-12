@@ -3,34 +3,33 @@ pub mod constraints;
 pub mod errors;
 pub mod instructions;
 pub mod state;
-use instructions::*;
-declare_id!("5NLxDYs6Br5H8D3F3eq4JjGa8wX292onmvwKbLC3wEbU");
 
+declare_id!("5NLxDYs6Br5H8D3F3eq4JjGa8wX292onmvwKbLC3wEbU");
 #[program]
 pub mod coinpetitive {
     use crate::instructions::finalize_challenge::FinalizeChallenge;
 
     use super::*;
 
-    pub fn init_token(ctx: Context<InitToken>, metadata: InitTokenParams) -> Result<()> {
-        instructions::initiate_token(ctx, metadata)
-    }
+    // pub fn init_token(ctx: Context<InitToken>, metadata: InitTokenParams) -> Result<()> {
+    //     instructions::initiate_token(ctx, metadata)
+    // }
 
-    pub fn mint_token(ctx: Context<MintTokens>, supply: u64) -> Result<()> {
-        instructions::mint_tokens(ctx, supply)
-    }
+    // pub fn mint_token(ctx: Context<MintTokens>, supply: u64) -> Result<()> {
+    //     instructions::mint_tokens(ctx, supply)
+    // }
 
-    pub fn transfer_founder(ctx: Context<PartiesTr>, amount: u64) -> Result<()> {
-        instructions::founder_transfer(ctx, amount)
-    }
+    // pub fn transfer_founder(ctx: Context<PartiesTr>, amount: u64) -> Result<()> {
+    //     instructions::founder_transfer(ctx, amount)
+    // }
 
-    pub fn transfer_dev(ctx: Context<PartiesTr>, amount: u64) -> Result<()> {
-        instructions::dev_transfer(ctx, amount)
-    }
+    // pub fn transfer_dev(ctx: Context<PartiesTr>, amount: u64) -> Result<()> {
+    //     instructions::dev_transfer(ctx, amount)
+    // }
 
-    pub fn marketing_transfer(ctx: Context<PartiesTr>, amount: u64) -> Result<()> {
-        instructions::do_marketing_transfer(ctx, amount)
-    }
+    // pub fn marketing_transfer(ctx: Context<PartiesTr>, amount: u64) -> Result<()> {
+    //     instructions::do_marketing_transfer(ctx, amount)
+    // }
 
     // Updated Challenge Functions
     pub fn create_challenge(
@@ -55,9 +54,9 @@ pub mod coinpetitive {
         instructions::challenge::pay_participation_fee::handle(ctx)
     }
 
-    pub fn vote_for_submission(ctx: Context<VoteForSubmission>) -> Result<()> {
-        instructions::challenge::vote_for_submission::handle(ctx)
-    }
+    // pub fn vote_for_submission(ctx: Context<VoteForSubmission>) -> Result<()> {
+    //     instructions::challenge::vote_for_submission::handle(ctx)
+    // }
 
     // pub fn finalize_challenge(
     //     ctx: Context<FinalizeChallenge>,

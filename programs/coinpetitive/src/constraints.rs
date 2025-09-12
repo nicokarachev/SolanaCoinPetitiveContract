@@ -1,4 +1,3 @@
-use anchor_lang::prelude::*;
 
 // Constants based on tokenomics
 pub const INITIAL_SUPPLY: u64 = 21_000_000 * 1_000_000_000; // 21M tokens with 9 decimals
